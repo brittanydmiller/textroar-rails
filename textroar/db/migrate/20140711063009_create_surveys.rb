@@ -8,6 +8,8 @@ class CreateSurveys < ActiveRecord::Migration
       t.string :poll_key
       t.string :phone
       t.integer :user_id
+      t.string :latitude
+      t.string :longitude
       t.timestamps
     end
   end

@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(:version => 20140711063019) do
     t.string   "poll_key"
     t.string   "phone"
     t.integer  "user_id"
+    t.string   "latitude"
+    t.string   "longitude"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -46,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20140711063019) do
     t.string   "latitude"
     t.string   "longitude"
     t.string   "ticket"
+    t.integer  "survey_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

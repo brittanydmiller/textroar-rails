@@ -6,6 +6,7 @@ class CreateVotes < ActiveRecord::Migration
       t.string :latitude
       t.string :longitude
       t.string :ticket
+      t.integer :survey_id
       t.timestamps
     end
   end
