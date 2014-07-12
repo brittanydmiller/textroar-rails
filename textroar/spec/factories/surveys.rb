@@ -11,5 +11,9 @@ FactoryGirl.define do
     sequence(:phone) {|n| "55#{n}5555555".truncate(10)} 
     latitude { Faker::Address.latitude }
     longitude { Faker::Address.longitude }
+  
+    factory :invalid_survey do
+      title nil
+    end
   end
 end
