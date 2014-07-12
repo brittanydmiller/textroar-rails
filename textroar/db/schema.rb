@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140712054140) do
+ActiveRecord::Schema.define(:version => 20140712170943) do
 
   create_table "responses", :force => true do |t|
     t.integer "survey_id"
-    t.string  "response_text"
-    t.string  "response_key"
+    t.string  "text"
+    t.string  "key"
   end
 
   create_table "surveys", :force => true do |t|
