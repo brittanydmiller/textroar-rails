@@ -9,32 +9,26 @@ describe Response do
     expect(response).to be_valid
   end
 
+  it 'has a valid factory' do
+    expect(build(:response)).to be_valid
+  end
+
   it 'is invalid without a survey_id' do
-    expect(Response.new(survey_id: nil)).to have(1).errors_on(:survey_id)
+    expect(build(:response, survey_id: nil)).to have(1).errors_on(:survey_id)
   end
 
   it 'is invalid without text' do
-    expect(Response.new(response_text: nil)).to have(1).errors_on(:response_text)
+    expect(build(:response, response_text: nil)).to have(1).errors_on(:response_text)
   end
 
   it 'is invalid without a key' do
-    expect(Response.new(response_key: nil)).to have(1).errors_on(:response_key)
+    expect(build(:response, response_key: nil)).to have(1).errors_on(:response_key)
   end
 
   describe "prevents duplicate responses in the same survey" do
 
     before :each do
-      @survey = Survey.create(
-        title: 'Favorite Futurama Crew Member',
-        descr: 'Which core crew member is your favorite?',
-        vote_start: 'Thurs, 08 May 2014 00:29:23 +0000',
-        vote_end: 'Fri, 09 May 2014 00:29:23 +0000',
-        poll_key: 'SJ45%',
-        phone: '5556667777',
-        user_id: 2,
-        latitude: '37.784816',
-        longitude: '-122.397387'
-        )
+      @survey = create(:survey)
       @survey.responses.create(
         survey_id: @survey.id,
         response_text: 'Bender',
