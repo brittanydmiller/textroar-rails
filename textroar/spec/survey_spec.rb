@@ -7,7 +7,7 @@ describe Survey do
       descr: 'Which core crew member is your favorite?',
       vote_start: 'Thurs, 08 May 2014 00:29:23 +0000',
       vote_end: 'Fri, 09 May 2014 00:29:23 +0000',
-      poll_key: 'SJ45%',
+      poll_key: 'SJ47%',
       phone: '5556667777',
       user_id: 2,
       latitude: '37.784816',
@@ -31,7 +31,31 @@ describe Survey do
     expect(Survey.new(poll_key: nil)).to have(1).errors_on(:poll_key)
   end
   
-  it 'is invalid with a duplicate poll key'
+  it 'is invalid with a duplicate poll key' do 
+    Survey.create(
+      title: 'Favorite Teletubby',
+      descr: 'Which weird alien thing is your favorite?',
+      vote_start: 'Thurs, 08 May 2014 00:29:23 +0000',
+      vote_end: 'Fri, 09 May 2014 00:29:23 +0000',
+      poll_key: 'SJ46%',
+      phone: '5556667777',
+      user_id: 2,
+      latitude: '37.784816',
+      longitude: '-122.397387'
+      )
+    survey = Survey.new(
+      title: 'Favorite Teletubby',
+      descr: 'Which weird alien thing is your favorite?',
+      vote_start: 'Thurs, 08 May 2014 00:29:23 +0000',
+      vote_end: 'Fri, 09 May 2014 00:29:23 +0000',
+      poll_key: 'SJ46%',
+      phone: '5556667777',
+      user_id: 2,
+      latitude: '37.784816',
+      longitude: '-122.397387'
+      )
+    expect(survey).to have(1).errors_on(:poll_key)
+  end
   
   it 'is invalid without a phone number' do
     expect(Survey.new(phone: nil)).to have(1).errors_on(:phone)
@@ -47,7 +71,7 @@ describe Survey do
       descr: 'Which core crew member is your favorite?',
       vote_start: 'Thurs, 08 May 2014 00:29:23 +0000',
       vote_end: 'Fri, 09 May 2014 00:29:23 +0000',
-      poll_key: 'SJ45%',
+      poll_key: 'SJ452%',
       phone: '5556667777',
       user_id: 2,
       latitude: '37.784816',
