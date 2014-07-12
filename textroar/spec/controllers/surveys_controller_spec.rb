@@ -3,7 +3,10 @@ require 'spec_helper'
 describe SurveysController do
   
   describe 'GET #index' do
-    it 'renders the :index template'
+    it 'renders the :index template' do
+      get :index
+      expect(response).to render_template :index
+    end
   end
 
   describe 'GET #show' do
