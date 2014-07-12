@@ -3,4 +3,9 @@ class SurveysController < ApplicationController
     @survey = Survey.find(params[:id])
   end
 
+  def new
+    @survey = Survey.new
+  end
+
+
 end

@@ -24,8 +24,14 @@ describe SurveysController do
   end
 
   describe 'GET #new' do
-    it 'assigns a new Survey to @survey'
-    it 'renders the :new template'
+    it 'assigns a new Survey to @survey' do
+      get :new
+      expect(assigns(:survey)).to be_a_new(Survey)
+    end
+    it 'renders the :new template' do
+      get :new
+      expect(response).to render_template :new
+    end
   end
 
   describe 'GET #edit' do
