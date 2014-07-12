@@ -7,8 +7,17 @@ describe SurveysController do
   end
 
   describe 'GET #show' do
-    it 'assigns the requested survey to @survey'
-    it 'renders the :show template'
+    it 'assigns the requested survey to @survey' do
+      survey = create(:survey)
+      get :show, id: survey
+      expect(assigns(:survey)).to eq survey
+    end
+
+    it 'renders the :show template' do
+      survey = create(:survey)
+      get :show, id: survey
+      expect(response).to render_template :show
+    end
   end
 
   describe 'GET #new' do
