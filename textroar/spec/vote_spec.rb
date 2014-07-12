@@ -55,8 +55,9 @@ describe Vote do
     expect(vote2).to have(1).errors_on(:ticket) 
   end
 
-  it 'is invaild with a latitude more than XX miles from survey location'
-  it 'is invalid with a longitude more than XX miles from survey location'
+  #TODO: Flesh this out later, with distance calculator
+  #it 'is invalid with a latitude more than XX miles from survey location' 
+  #it 'is invalid with a longitude more than XX miles from survey location'
 
 
 end
