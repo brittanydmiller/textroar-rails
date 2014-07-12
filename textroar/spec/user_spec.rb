@@ -4,7 +4,7 @@ describe User do
   it 'is valid with a name, password, phone number & email' do 
     user = User.new(
       username: 'Sheryl',
-      password_hash: 'yorkshire',
+      password: 'yorkshire',
       phone: '7737737773',
       email: 'test@example.com')
     expect(user).to be_valid
@@ -17,11 +17,6 @@ describe User do
   it 'is invalid without a username' do 
     user = build(:user, username: nil)
     expect(User.new(username: nil)).to have(1).errors_on(:username)
-  end
-
-  it 'is invalid without a password' do 
-    user = build(:user, password_hash: nil)
-    expect(user).to have(1).errors_on(:password_hash)
   end
 
   it 'is invalid without a phone number' do
@@ -38,7 +33,7 @@ describe User do
     before :each do
       User.create(
       username: 'Mauritzio', 
-      password_hash: 'hartford', 
+      password: 'hartford', 
       phone: '9339339993', 
       email: 'example@test.com')
     end
