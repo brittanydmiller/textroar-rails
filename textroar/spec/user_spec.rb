@@ -10,61 +10,52 @@ describe User do
     expect(user).to be_valid
   end
 
+  it 'has a valid factory' do
+    expect(FactoryGirl.build(:user)).to be_valid
+  end
+
   it 'is invalid without a username' do 
+    user = FactoryGirl.build(:user, username: nil)
     expect(User.new(username: nil)).to have(1).errors_on(:username)
   end
 
-  it 'is invalid with a duplicate username' do
-    User.create(
-      username: 'Mauritzio', 
-      password_hash: 'hartford', 
-      phone: '6226226662', 
-      email: 'fake@example.com')
-    user = User.new(
-      username: 'Mauritzio',
-      password_hash: 'connecticut',
-      phone: '5115115551',
-      email: 'example@test.com')
-    expect(user).to have(1).errors_on(:username)
-  end
-
   it 'is invalid without a password' do 
-    expect(User.new(password_hash: nil)).to have(1).errors_on(:password_hash)
+    user = FactoryGirl.build(:user, password_hash: nil)
+    expect(user).to have(1).errors_on(:password_hash)
   end
 
-  it 'is invalid without a phone number' do 
-    expect(User.new(phone: nil)).to have(1).errors_on(:phone)
+  it 'is invalid without a phone number' do
+    user = FactoryGirl.build(:user, phone: nil) 
+    expect(user).to have(1).errors_on(:phone)
   end
 
   it 'is invalid without an email address' do 
-    expect(User.new(email: nil)).to have(1).errors_on(:email)
+    user = FactoryGirl.build(:user, email: nil)
+    expect(user).to have(1).errors_on(:email)
   end
 
   describe "prevent duplicate user information" do
     before :each do
       User.create(
-      username: 'Harrison', 
+      username: 'Mauritzio', 
       password_hash: 'hartford', 
       phone: '9339339993', 
       email: 'example@test.com')
     end
-    
+
     it 'is invalid with a duplicate phone number' do
-      user = User.new(
-        username: 'Polly',
-        password_hash: 'connecticut',
-        phone: '9339339993',
-        email: 'tester@example.com')
+      user = FactoryGirl.build(:user, phone:'9339339993')
       expect(user).to have(1).errors_on(:phone)
     end
 
     it 'is invalid with a duplicate email address' do
-      user = User.new(
-        username: 'Champton',
-        password_hash: 'connecticut',
-        phone: '5115115551',
-        email: 'example@test.com')
+      user = FactoryGirl.build(:user, email:'example@test.com')
       expect(user).to have(1).errors_on(:email)
     end
+
+    it 'is invalid with a duplicate username' do
+    user = FactoryGirl.build(:user, username:'Mauritzio')
+    expect(user).to have(1).errors_on(:username)
+  end
   end
 end
