@@ -11,3 +11,86 @@
  *= require_self
  *= require_tree .
  */
+
+ body {
+  color: teal;
+  background-color: #000;
+  clear: both;
+  background: black url('lion.jpg') no-repeat;
+  background-attachment: fixed;
+  background-position: left bottom;
+}
+
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+  background-color: #EEE;
+}
+
+h1 {
+  margin: 20px;
+  font-size: 3em;
+  float: left;
+}
+
+#text {
+  font-family: 'Quantico', sans-serif;
+/*font-family: 'Anton', sans-serif;*/
+/*font-family: 'Orbitron', sans-serif;*/
+/*font-family: 'Geo', sans-serif;*/
+}
+
+#roar {
+font-family: 'Trade Winds', cursive;
+}
+
+p, li {
+  font-family: Verdana, Helvetica, sans-serif;
+}
+
+.survey ul{
+  width: 50%;
+  margin: 0 auto;  
+  list-style-position:outside;
+}
+
+.survey li{
+  font-size: 1.2em;
+  list-style-type:none;
+  list-style-position:inside;
+  padding: 2%;
+  margin-right: 50px;
+  border: 1px dashed #AAA;
+  font-family: 'Quantico', sans-serif;
+}
+
+a {
+  color: teal;
+  text-decoration: none;
+  padding: 10px;
+}
+
+a:hover {
+  color: #2FF2FF;
+}
+
+#nav li {
+  float: left;
+  list-style-type: none;
+  padding: 40px 0 40px 40px;
+}
+
+header {
+  height: 60px;
+  padding-bottom: 20px;
+}
+
+form {
+  padding: 10px;
+}
+
+input, textarea {
+  margin: 20px auto;
+}

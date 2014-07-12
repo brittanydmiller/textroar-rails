@@ -1,0 +1,5 @@
+<h3><%=@survey.title%><h3>
+<h4><%=@survey.descr%><h4>
+<% @survey.responses.each do |response| %>
+  <h5><%=response.key%>  <%=response.text%></h5>
+<% end %>

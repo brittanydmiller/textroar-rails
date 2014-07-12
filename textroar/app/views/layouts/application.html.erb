@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Textroar</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Trade+Winds|Anton|Orbitron|Quantico|Geo' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "normalize" %>
+  <%= stylesheet_link_tag    "application" %>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title>TextRoar</title>
 </head>
 <body>
-
-<%= yield %>
-
+  <header>
+    <h1><a href ="/"><sup id="text">Text</sup><span id ="roar">Roar</span></a></h1>
+    <ul id="nav">
+      <li><a href ="/surveys/new">create a survey</a></li>
+      <li><a href ="/surveys/1">survey</a></li>
+      <li><a href ="/results">see results</a></li>
+    </ul>
+  </header>
+  <div class="container">
+    <%= yield %>
+  </div>
+  
 </body>
 </html>
