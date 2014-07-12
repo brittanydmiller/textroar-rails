@@ -1,1 +1,7 @@
-Surveys Index
+<h3>Your Surveys</h3>
+
+<%@surveys.each do |survey|%>
+
+<%=survey.title%> - <%=survey.descr%>  
+
+<%end%>

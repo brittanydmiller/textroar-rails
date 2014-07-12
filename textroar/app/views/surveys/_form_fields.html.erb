@@ -1,16 +1,47 @@
-  <label for="title">Title: </label>
-  <input type="text" name="title" value="<%= @survey.try(:title)%>" id="title" placeholder="e.g. Who would win in a battle?" required>
-  <br>
-  <label for ="descr"> Description: </label>
-  <textarea rows="4" cols="50" name="description" id="desc" >
-  <%=@survey.try(:descr)%>
-  </textarea>
-  <br>
-  <label for="poll_key">Poll Key: (create a 3-5 character key you can use to control the voting window via SMS) </label>
-  <input type="text" name="poll_key" value="<%= @survey.try(:poll_key)%>" id="poll_key" placeholder="e.g. L3G1T" required>
-  <br>
-  <label for="phone">Poll Phone Number: (where will your voters send their texts?)</label>
-  <input type="text" name="phone" value="<%= @survey.try(:phone)%>" id="phone" placeholder="774-849-3378"required>
-  <br>
-  <input type="submit" value="save">
-  <a>Add a Response Option</a>
+<ul>
+  <%= form_for @survey do |f| %>
+  <li>
+    <%= f.label :title %>
+  </li>
+  <li>
+    <%= f.text_field(:title, placeholder: 'e.g. Who would win in a battle?', size: "60", :required => true)%>
+  </li>
+  <li>
+    <%= f.label :descr, 'Description' %> 
+  </li>
+  <li>
+    <%= f.text_area(:descr, size: "50x4") %>
+  </li>
+  <li>
+    <%= f.label :phone, 'Poll Phone Number: (where will your voters send their texts?)' %> 
+  </li>
+  <li>
+    <%= f.text_field(:phone, placeholder: "774-849-3378", size: "15", :required => true) %>
+  </li>
+  <li>
+    <%= f.label :poll_key, 'Poll Key: (create a 3-6 character key for controlling the voting period via SMS)' %> 
+  </li>
+  <li>
+    <%= f.text_field(:poll_key, placeholder: "e.g. L3G1T", size: "10", :required => true) %>
+  </li>
+  <li>
+    <%= f.label :vote_start, 'Vote Start Date' %> 
+  </li>
+  <li>
+    <%= f.date_select(:vote_start, :required => true) %>
+  </li>
+  <li>
+    <%= f.label :vote_end, 'Vote End Date' %> 
+  </li>
+  <li>
+    <%= f.date_select(:vote_end, :required => true) %>
+  </li>
+  <li>
+    <a href="/">Add a Response Option</a>
+  </li>
+  <li>
+    <%= f.submit("save") %>
+  </li>
+  <% end %>
+</ul>
+  
