@@ -35,8 +35,16 @@ describe SurveysController do
   end
 
   describe 'GET #edit' do
-    it 'assigns the requested survey to @survey'
-    it 'renders the :edit template'
+    it 'assigns the requested survey to @survey' do
+      survey = create(:survey)
+      get :edit, id: survey
+      expect(assigns(:survey)).to eq survey
+    end
+    it 'renders the :edit template' do 
+      survey = create(:survey)
+      get :edit, id: survey
+      expect(response).to render_template :edit
+    end
   end
 
   describe 'POST #create' do

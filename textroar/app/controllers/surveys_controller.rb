@@ -7,5 +7,8 @@ class SurveysController < ApplicationController
     @survey = Survey.new
   end
 
+  def edit
+    @survey = Survey.find(params[:id])
+  end
 
 end
