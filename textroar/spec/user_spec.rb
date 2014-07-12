@@ -54,4 +54,17 @@ describe User do
     expect(User.new(email: nil)).to have(1).errors_on(:email)
   end
 
+  it 'is invalid with a duplicate email address' do
+      User.create(
+      username: 'Polly',
+      password_hash: 'connecticut',
+      phone: '9339339993',
+      email: 'tester@example.com')
+    user = User.new(
+      username: 'Champton',
+      password_hash: 'connecticut',
+      phone: '5115115551',
+      email: 'tester@example.com')
+    expect(user).to have(1).errors_on(:email)
+  end
 end
