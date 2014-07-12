@@ -23,26 +23,15 @@ describe Vote do
     end
   end
 
+  it 'has a valid factory' do
+    expect(build(:vote)).to be_valid
+  end
+
   describe "prevent duplicate voters" do
 
     before :each do
-      @survey = Survey.create(
-        title: 'Favorite Futurama Crew Member',
-        descr: 'Which core crew member is your favorite?',
-        vote_start: 'Thurs, 08 May 2014 00:29:23 +0000',
-        vote_end: 'Fri, 09 May 2014 00:29:23 +0000',
-        poll_key: 'SJ47%',
-        phone: '5556667777',
-        user_id: 2,
-        latitude: '37.784816',
-        longitude: '-122.397387') 
-       @vote1 = @survey.votes.create(
-        phone: '3443443444',
-        choice: 'Kimberly',
-        latitude: '34.824824',
-        longitude: '-122.234567',
-        ticket: 'G345',
-        survey_id: @survey.id)     
+      @survey = create(:survey)
+      @survey.votes << create(:vote, phone: '3443443444', ticket: 'G345')   
     end
 
     it 'is invalid with a duplicate phone, in the scope of the survey' do
