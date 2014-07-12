@@ -1,20 +1,26 @@
 require 'spec_helper'
 
 describe Vote do
-  it 'is valid with a phone and choice (and all optional attributes)' do 
-    vote = Vote.new(
-      phone: '3443443444',
-      choice: 'Bart',
-      latitude: '34.824824',
-      longitude: '-122.234567',
-      ticket: 'G345',
-      survey_id: 44)
-    expect(vote).to be_valid
-  end
+  describe 'validate new vote' do
+    context 'required attributes and optional attributes provided' do
+      it 'is valid with a phone and choice (and all optional attributes)' do 
+        vote = Vote.new(
+          phone: '3443443444',
+          choice: 'Bart',
+          latitude: '34.824824',
+          longitude: '-122.234567',
+          ticket: 'G345',
+          survey_id: 44)
+        expect(vote).to be_valid
+      end
+    end
 
-  it 'is valid with only a phone, choice, and survey_id' do
-    vote = Vote.new(phone: '1221221112', choice: 'Lisa', survey_id: 42)
-    expect(vote).to be_valid
+    context 'only required attributes provided' do
+      it 'is valid with only a phone, choice, and survey_id' do
+        vote = Vote.new(phone: '1221221112', choice: 'Lisa', survey_id: 42)
+        expect(vote).to be_valid
+      end
+    end
   end
 
   describe "prevent duplicate voters" do
@@ -49,7 +55,7 @@ describe Vote do
       expect(vote2).to have(1).errors_on(:ticket) 
     end
   end
-  
+
   #TODO: Flesh this out later, with distance calculator
   #it 'is invalid with a latitude more than XX miles from survey location' 
   #it 'is invalid with a longitude more than XX miles from survey location'
