@@ -36,35 +36,35 @@ describe User do
     expect(User.new(phone: nil)).to have(1).errors_on(:phone)
   end
 
-  it 'is invalid with a duplicate phone number' do
+  it 'is invalid without an email address' do 
+    expect(User.new(email: nil)).to have(1).errors_on(:email)
+  end
+
+  describe "prevent duplicate user information" do
+    before :each do
       User.create(
       username: 'Harrison', 
       password_hash: 'hartford', 
       phone: '9339339993', 
       email: 'example@test.com')
-    user = User.new(
-      username: 'Polly',
-      password_hash: 'connecticut',
-      phone: '9339339993',
-      email: 'tester@example.com')
-    expect(user).to have(1).errors_on(:phone)
-  end
+    end
+    
+    it 'is invalid with a duplicate phone number' do
+      user = User.new(
+        username: 'Polly',
+        password_hash: 'connecticut',
+        phone: '9339339993',
+        email: 'tester@example.com')
+      expect(user).to have(1).errors_on(:phone)
+    end
 
-  it 'is invalid without an email address' do 
-    expect(User.new(email: nil)).to have(1).errors_on(:email)
-  end
-
-  it 'is invalid with a duplicate email address' do
-      User.create(
-      username: 'Polly',
-      password_hash: 'connecticut',
-      phone: '9339339993',
-      email: 'tester@example.com')
-    user = User.new(
-      username: 'Champton',
-      password_hash: 'connecticut',
-      phone: '5115115551',
-      email: 'tester@example.com')
-    expect(user).to have(1).errors_on(:email)
+    it 'is invalid with a duplicate email address' do
+      user = User.new(
+        username: 'Champton',
+        password_hash: 'connecticut',
+        phone: '5115115551',
+        email: 'example@test.com')
+      expect(user).to have(1).errors_on(:email)
+    end
   end
 end
