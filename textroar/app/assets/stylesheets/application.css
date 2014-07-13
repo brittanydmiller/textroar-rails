@@ -8,6 +8,7 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require foundation_and_overrides
  *= require_self
  *= require_tree .
  */
@@ -37,20 +38,21 @@ h1 {
 
 #text {
   font-family: 'Quantico', sans-serif;
-/*font-family: 'Anton', sans-serif;*/
-/*font-family: 'Orbitron', sans-serif;*/
-/*font-family: 'Geo', sans-serif;*/
+  /*font-family: 'Anton', sans-serif;*/
+  /*font-family: 'Orbitron', sans-serif;*/
+  /*font-family: 'Geo', sans-serif;*/
 }
 
 #roar {
-font-family: 'Trade Winds', cursive;
+  font-family: 'Trade Winds', cursive;
 }
 
 p, li {
   font-family: Verdana, Helvetica, sans-serif;
 }
 
-.survey ul{
+/*classname is different on controllers branch*/
+/*.survey ul{
   width: 50%;
   margin: 0 auto;  
   list-style-position:outside;
@@ -64,7 +66,8 @@ p, li {
   margin-right: 50px;
   border: 1px dashed #AAA;
   font-family: 'Quantico', sans-serif;
-}
+}*/
+
 
 a {
   color: teal;

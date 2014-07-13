@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <link href='http://fonts.googleapis.com/css?family=Trade+Winds|Anton|Orbitron|Quantico|Geo' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag    "normalize" %>
-  <%= stylesheet_link_tag    "application" %>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='http://fonts.googleapis.com/css?family=Trade+Winds|Anton|Orbitron|Quantico|Geo' rel='stylesheet' type='text/css'>
+    <title><%= content_for?(:title) ? yield(:title) : "textRoar" %></title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <title>TextRoar</title>
-</head>
-<body>
-  <header>
-    <h1><a href ="/"><sup id="text">Text</sup><span id ="roar">Roar</span></a></h1>
-    <ul id="nav">
-      <li><a href ="/surveys/new">create a survey</a></li>
-      <li><a href ="/surveys/1">survey</a></li>
-      <li><a href ="/results">see results</a></li>
-    </ul>
-  </header>
-  <div class="container">
-    <%= yield %>
-  </div>
-  
-</body>
+  <body>
+    <header>
+      <h1><a href ="/"><sup id="text">Text</sup><span id ="roar">Roar</span></a></h1>
+      <ul id="nav">
+        <li><a href ="/surveys/new">create a survey</a></li>
+        <li><a href ="/surveys/1">survey</a></li>
+        <li><a href ="/results">see results</a></li>
+      </ul>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
+
