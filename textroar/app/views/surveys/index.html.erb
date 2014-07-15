@@ -1,12 +1,14 @@
 <div class="row">
-  <div class="small-2 large-4 small-centered columns"><h2>Surveys Index</h2></div>
+  <div class="small-2 large-4 small-centered columns"><h2>Your Surveys</h2></div>
   <div class="small-4 large-4 small-centered columns">...</div>
   <div class="small-6 large-4 small-centered columns">...</div>
 </div>
 <div class="row">
-  <div class="small-2 large-4 small-centered columns">...</div>
+  <div class="small-2 large-4 small-centered columns">
+    <%@surveys.each do |survey|%> 
+    <%=survey.title%> - <%=survey.descr%>  
+    <%end%>
+  </div>
   <div class="small-4 large-4 small-centered columns">...</div>
   <div class="small-6 large-4 small-centered columns">...</div>
 </div>
-
-

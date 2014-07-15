@@ -22,14 +22,6 @@ describe Survey do
   it 'is invalid without a title' do
     expect(build(:survey, title: nil)).to have(1).errors_on(:title)
   end
-
-  it 'is invalid without a start' do
-    expect(build(:survey, vote_start: nil)).to have(1).errors_on(:vote_start)
-  end
-
-  it 'is invalid without an end' do
-    expect(build(:survey, vote_end: nil)).to have(1).errors_on(:vote_end)
-  end
   
   it 'is invalid without a poll key' do
     expect(build(:survey, poll_key: nil)).to have(1).errors_on(:poll_key)
