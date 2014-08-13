@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  ApplicationController = new ApplicationController(new FormController(new FormView(formViewSelectors)));
+  ApplicationController = new ApplicationController(new VotingController(), new FormController(new FormView(formViewSelectors)));
   ApplicationController.initialize();
 })
 
@@ -9,4 +9,5 @@ var formViewSelectors = {
   form: '#response-form'
 }
 
+//add #open and #close selectors for VotingController 
 
