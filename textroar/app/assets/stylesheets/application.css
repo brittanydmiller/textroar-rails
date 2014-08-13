@@ -97,3 +97,12 @@ form {
 input, textarea {
   margin: 20px auto;
 }
+
+.hidden {
+  display: none;
+}
+
+.unhidden {
+  display: initial;
+}
+
