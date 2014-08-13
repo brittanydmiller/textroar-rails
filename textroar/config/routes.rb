@@ -1,5 +1,7 @@
 Textroar::Application.routes.draw do
 
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+
   resources :surveys
 
   # The priority is based upon order of creation:
