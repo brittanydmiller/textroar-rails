@@ -1,0 +1,19 @@
+<div id="response-form"  class="form" style="display: none;">
+  
+
+  <%= form_tag("#{params[:id]}/responses", method: "post", remote: true, id: "add-response", class: '') do %>
+    <fieldset>
+      <div>
+        <%= label_tag(:key, "Voting Key - what your voters will actually send in their text vote") %>
+        <%= text_field_tag(:key, content = "e.g. 1, 2, 3 (must be unique)") %>
+      </div>
+      <div>
+        <%= label_tag(:text, "Description") %>
+        <%= text_field_tag(:text, content = "e.g. Gilligan or The Professor") %>
+      </div>
+      <div>
+        <%= submit_tag("Add Response") %>
+      </div>
+    </fieldset>
+  <% end %>
+</div>
