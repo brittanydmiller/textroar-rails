@@ -17,7 +17,6 @@ class SurveysController < ApplicationController
 
   def create #POST /surveys
     @survey = Survey.new(params["survey"])
-    @survey[:title] = "Something here"
     @survey[:user_id] = 4
     if @survey.save
       redirect_to @survey, :notice => "Successfully created survey."
