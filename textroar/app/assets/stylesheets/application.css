@@ -36,6 +36,10 @@ h1 {
   float: left;
 }
 
+h2,h3,h4,h5 {
+  clear: both;
+}
+
 #text {
   font-family: 'Quantico', sans-serif;
   /*font-family: 'Anton', sans-serif;*/
