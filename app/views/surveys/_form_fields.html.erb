@@ -1,0 +1,32 @@
+<ul>
+  <%= form_for @survey do |f| %>
+  <li>
+    <%= f.label :title %>
+  </li>
+  <li>
+    <%= f.text_field(:title, placeholder: 'e.g. Who would win in a battle?', size: "60", :required => true)%>
+  </li>
+  <li>
+    <%= f.label :descr, 'Description' %> 
+  </li>
+  <li>
+    <%= f.text_area(:descr, size: "50x4") %>
+  </li>
+  <li>
+    <%= f.label :phone, 'Poll Phone Number: (where will your voters send their texts?)' %> 
+  </li>
+  <li>
+    <%= f.text_field(:phone, placeholder: "774-849-3378", size: "15", :required => true) %>
+  </li>
+  <li>
+    <%= f.label :poll_key, 'Poll Key: (create a 3-6 character key for controlling the voting period via SMS)' %> 
+  </li>
+  <li>
+    <%= f.text_field(:poll_key, placeholder: "e.g. L3G1T", size: "10", :required => true) %>
+  </li>
+  <li>
+    <%= f.submit("save") %>
+  </li>
+  <% end %>
+</ul>
+  
