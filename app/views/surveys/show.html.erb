@@ -1,0 +1,12 @@
+<h3><%=@survey.title%><h3>
+<h4><%=@survey.descr%><h4>
+<ul id="survey-responses">
+<% @survey.responses.each do |response| %>
+  <li><%=response.key%>  <%=response.text%></li>
+<% end %>
+</ul>
+<button id="add-form">Add a Response Option</button>
+<button id="cancel-form" class="hidden">Nevermind</button>
+<%= render "add_response" %>
+<button id="open">Open Voting</button>
+<button id="close" class="hidden">Close Voting</button>
